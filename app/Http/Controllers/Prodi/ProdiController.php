@@ -14,12 +14,9 @@ use App\Http\Controllers\Controller;
 use App\Prodi as Prodi;
 use App\Jurusan as Jurusan;
 
-
 class ProdiController extends Controller
 {
   
-  
-
 	public function __construct()
   {
     $this->middleware('auth');
@@ -57,7 +54,7 @@ class ProdiController extends Controller
   }
 
   protected function validator(array $data)
-    {
+  {
         $messages = [
             'prodiKode.required'    => 'Kode Program Studi dibutuhkan.',
             'prodiKode.unique'      => 'Kode Program Studi sudah digunakan.',
@@ -69,7 +66,7 @@ class ProdiController extends Controller
             'prodiNama' => 'required|max:60',
             'prodiJurKode' => 'required',
         ], $messages);
-    }
+  }
  
     /**
      * Create a new user instance after a valid registration.
@@ -77,8 +74,8 @@ class ProdiController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function tambah(array $data)
-    {
+  protected function tambah(array $data)
+  {
 
         $prodi = new Prodi();
         $prodi->prodiKode         = $data['prodiKode'];
@@ -89,7 +86,7 @@ class ProdiController extends Controller
         //error kode 500 - internel server error
         if (! $prodi->save() )
           App::abort(500);
-    }
+  }
  
     /**
      * Handle a registration request for the application.

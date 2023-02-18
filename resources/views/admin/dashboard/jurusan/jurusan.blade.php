@@ -28,7 +28,7 @@
                       <tr>
                           <td style="text-align: center;">{{ $datajurusan->jurKode}}</td>
                           <td>{{ $datajurusan->jurNama}}</td>
-                          <td><a href="{{{ action('Jurusan\JurusanController@hapus',[$datajurusan->jurKode]) }}}" title="hapus" onclick="return confirm('Apakah anda yakin akan menghapus Jurusan {{{$datajurusan->jurKode.$datajurusan->jurNama }}}?')">
+                          <td><a href="{{{ action('Jurusan\JurusanController@hapus',[$datajurusan->jurKode]) }}}" title="hapus" onclick="return confirm('Apakah anda yakin akan menghapus Jurusan {{{$datajurusan->jurKode .' - '.$datajurusan->jurNama }}}?')">
                             <span class="label label-danger"><i class="fa fa-trash"> Delete </i></span>
                             </a>
                           

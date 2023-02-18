@@ -87,9 +87,14 @@ class JurusanController extends Controller
 
   public function hapus($id)
   {
-    Jurusan::where('jurKode','=',$id)->first();
+    $jurKode = Jurusan::where('jurKode','=',$id)->first();
+
+    if($jurKode==null)
+      app::abort(404);
+    $jurKode->delete();
     
     return Redirect::route('jurusan');
+
   }
 
   

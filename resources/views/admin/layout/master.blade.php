@@ -25,13 +25,24 @@
     <link href="{{URL::asset('admin/dist/css/skins/_all-skins.min.css')}}"  rel="stylesheet" >
     <link href="{{URL::asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{URL::asset('auth/images/logo.ico') }}" rel="SHORTCUT ICON" />
+    <link href="{{URL::asset('admin/plugins/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css">
+    <!-- bikin script base_url untuk dipanggil dari javascript -->
+    <meta name="base_url" content="{{ URL::to('/') }}">
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
       @include('admin.include.header')
+      
+      @if(Auth::user()->level==1)
+        @include('admin.include.sidebar')
+      @elseif(Auth::user()->level==2)
+        @include('admin.include.sidebardsn')
+      @elseif(Auth::user()->level==3)
+        @include('admin.include.sidebarmhs')
+      @endif
+      
 
-      @include('admin.include.sidebar')
 
 
       <!-- Content Wrapper. Contains page content -->
@@ -48,15 +59,11 @@
       </div><!-- /.content-wrapper -->
 
       @include('admin.include.footer')
-
-
-
-    
-    
     
     <script src="{{ URL::asset('admin/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>    
     <script src="{{ URL::asset('admin/plugins/jQueryUI/jquery-ui.min.js') }}"></script>
     <script src="{{ URL::asset('admin/bootstrap/js/bootstrap.min.js') }}"></script>
+    
     
     @yield('script')
 
@@ -68,7 +75,7 @@
     
 <script src="{{ URL::asset('admin/plugins/raphael/raphael-min.js') }}"></script>
 <script src="{{ URL::asset('admin/plugins/morris/morris.min.js') }}"></script>
-<script src="{{ URL::asset('admin/plugins/sparkline/jquery.sparkline.min.js') }}"></script>   >
+<script src="{{ URL::asset('admin/plugins/sparkline/jquery.sparkline.min.js') }}"></script>   
 <script src="{{ URL::asset('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
 <script src="{{ URL::asset('admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 <script src="{{ URL::asset('admin/plugins/knob/jquery.knob.js') }}"></script>
@@ -80,6 +87,7 @@
 <script src="{{ URL::asset('admin/plugins/fastclick/fastclick.min.js') }}"></script>
 <script src="{{ URL::asset('admin/dist/js/app.min.js') }}"></script>
 <script src="{{ URL::asset('admin/dist/js/pages/dashboard.js') }}"></script> 
+<script src="{{ URL::asset('admin/plugins/highcharts/highcharts.js') }}"></script>
  <!--    jQuery 2.1.4
  <script type="text/javascript" src="{{ URL::asset('admin/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
  <script type="text/javascript" src="{{ URL::asset('admin/plugins/jQueryUI/jquery-ui.min.js') }}"></script>

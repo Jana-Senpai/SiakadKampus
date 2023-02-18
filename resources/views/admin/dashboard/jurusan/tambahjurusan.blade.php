@@ -13,7 +13,7 @@
 @section('content')
 <div class="row">
             <div class="col-md-6">
-                <div class="uk-alert uk-alert-success" data-uk-alert>
+                <div class="box-body flash-message" data-uk-alert>
                     <a href="" class="uk-alert-close uk-close"></a>
                     <p>{{  isset($successMessage) ? $successMessage : '' }}</p>
                      @if (count($errors) > 0)

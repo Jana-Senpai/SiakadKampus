@@ -16,126 +16,114 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview">
+            <li class=" @if(url('/jurusan') == request()->url() or url('/prodi') == request()->url() ) active @else '' @endif  treeview">
               <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Program Studi</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="/jurusan"><i class="fa fa-circle-o"></i> Jurusan </a></li>
-                <li><a href="/prodi"><i class="fa fa-circle-o"></i> Program Studi </a></li>
+                <li><a href="{{URL::to('jurusan')}}"><i class="fa fa-circle-o"></i> Jurusan </a></li>
+                <li><a href="{{URL::to('prodi')}}"><i class="fa fa-circle-o"></i> Program Studi </a></li>
                
               </ul>
             </li>
-            <li class="treeview">
+            <li class="@if(url('/kurikulum') == request()->url() or url('/kurikulum/matakuliah') == request()->url() ) active @else '' @endif treeview">
               <a href="#">
                 <i class="fa fa-files-o"></i>
                 <span>Kurikulum</span> <i class="fa fa-angle-left pull-right"></i>
                
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Data Kurikulum </a></li>
-                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Matakuliah </a></li>
+                <li><a href="{{URL::to('kurikulum')}}"><i class="fa fa-circle-o"></i> Data Kurikulum </a></li>
+                <li><a href="{{URL::to('kurikulum/matakuliah')}}"><i class="fa fa-circle-o"></i> Matakuliah </a></li>
               </ul>
             </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-pie-chart"></i>
-                <span>Jenis Nilai</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Jenis Nilai</a></li>
-                
-              </ul>
-            </li>
-            <li class="treeview">
+            <li class="@if(url('/semester') == request()->url() or url('/semester/semesterprodi') == request()->url() ) active @else '' @endif treeview">
               <a href="#">
                 <i class="fa fa-pie-chart"></i>
                 <span>Semester</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Jenis Semester</a></li>
-                <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Setting Semester</a></li>
-                
+                <li><a href="{{{URL::to('semester')}}}"><i class="fa fa-circle-o"></i> Setting Semester</a></li>
+                <li><a href="{{{URL::to('semester/semesterprodi')}}}"><i class="fa fa-circle-o"></i> Semester Prodi</a></li>
               </ul>
             </li>
-            <li class="treeview">
+            <li class="@if(url('/dosen') == request()->url()) active @else '' @endif treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
                 <span>Dosen</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Data Dosen</a></li>
-                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Jadwal Mengajar Dosen</a></li>
-               
+                <li><a href="{{{URL::to('dosen')}}}"><i class="fa fa-circle-o"></i> Data Dosen</a></li>
+                
+                
               </ul>
             </li>
-            <li class="treeview">
+            <li class="@if(url('/mahasiswa') == request()->url()  ) active @else '' @endif treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
                 <span>Mahasiswa</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Data Mahasiswa</a></li>
-                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Pencarian Mahasiswa</a></li>
-                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Registrasi Mahasiswa</a></li>
-               
+                <li><a href="{{{URL::to('mahasiswa')}}}"><i class="fa fa-circle-o"></i> Data Mahasiswa</a></li>  
               </ul>
             </li>
-            <li class="treeview">
+            <li class="@if(url('/kelas/register/kelaspeserta') == request()->url() ) active @else '' @endif treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
                 <span>Rencana Studi</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Rencana Studi</a></li>
+                <li><a href="{{{route('kelas.klspeserta.proses')}}}"><i class="fa fa-circle-o"></i> Register Kelas Peserta</a></li>
                 
               </ul>
             </li>
-            <li class="treeview">
+            <li class="@if(url('/kelas/mhsregister') == request()->url() or url('/kelas/register') == request()->url() or url('/kelas') == request()->url() ) active @else '' @endif treeview">
               <a href="#">
                 <i class="fa fa-users"></i>
-                <span>Peserta Kelas</span>
+                <span>Kelas</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Peserta Kelas</a></li>
-                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Cetak Presensi</a></li>
-                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Cetak Presensi Ujian</a></li>
+                <li><a href="{{{route('kelas.mhsregister')}}}"><i class="fa fa-circle-o"></i> Mahasiswa Register</a></li>
+                <li><a href="{{{URL::to('kelas/register')}}}"><i class="fa fa-circle-o"></i> Register Kelas</a></li>
+                <li><a href="{{{URL::to('kelas')}}}"><i class="fa fa-circle-o"></i> Dosen Kelas</a></li> 
+                               
+                <!-- <li><a href="{{{URL::to('kelas/9/prodi')}}}"><i class="fa fa-circle-o"></i> Kelas Untuk Prodi tertentu</a></li> -->
+                
               
               </ul>
             </li>
-            <li class="treeview">
+            <li class="@if(url('/nilai/jenis') == request()->url() or url('/kelas/input/nilai') == request()->url() ) active @else '' @endif treeview">
               <a href="#">
                 <i class="fa fa-file-text"></i>
                 <span>Hasil Studi</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Input Nilai</a></li>
-                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Hasil Studi Per Semester</a></li>       
+                <li><a href="{{{URL::to('nilai/jenis')}}}"><i class="fa fa-circle-o"></i> Jenis Nilai</a></li>
+                <li><a href="{{{route('kelas.input.nilai')}}}"><i class="fa fa-circle-o"></i> Input Nilai</a></li>               
               
               </ul>
             </li>
-            <li class="treeview">
+            <li class="@if(url('/accountmahasiswa') == request()->url() or url('/accountdosen') == request()->url() ) active @else '' @endif treeview">
               <a href="#">
                 <i class="fa fa-user"></i>
                 <span>User Management</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Account Mahasiswa</a></li>
-                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Account Dosen</a></li> 
-                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Reset Password Mahasiswa</a></li>
-                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Reset Password Dosen</a></li>         
+                <li><a href="{{{URL::to('accountmahasiswa')}}}"><i class="fa fa-circle-o"></i> Akun Mahasiswa</a></li>
+                <li><a href="{{{URL::to('accountdosen')}}}"><i class="fa fa-circle-o"></i> Akun Dosen</a></li> 
+                       
               
               </ul>
             </li>
-          
+
+                  
           </ul>
         </section>
         <!-- /.sidebar -->

@@ -14,6 +14,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        
+        \Validator::extend('cek_passwordlama', function ($attribute, $value, $parameters) {
+            return \Hash::check($value, $parameters[0]);
+});
     }
 
     /**

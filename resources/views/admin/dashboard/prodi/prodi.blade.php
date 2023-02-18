@@ -91,7 +91,6 @@
                                   <label class="col-md-4 control-label">Jurusan</label>
                                   <div class="col-md-6 has-error">
                                       <select class="form-control" name="prodiJurKode">
-                                        
                                           @foreach ($listjurusan as $itemjurusan)
                                           <option value="{{$itemjurusan->jurKode}}">{{$itemjurusan->jurNama}}</option>
                                           @endforeach
@@ -133,7 +132,6 @@
             //console.log('test');
             return false;
         });
-
 
        
         $(document).on('submit', '#formProdi', function(e) {  
